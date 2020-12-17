@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.testTwo.WalletsMapper">
+    <resultMap id="BaseResultMap" type="com.example.demo.entity.Wallets">
+        <id column="WalletsID" jdbcType="BIGINT" property="walletsID" />
+        <result column="Name" jdbcType="VARCHAR" property="name" />
+    </resultMap>
+  <select id="selectAll" resultMap="BaseResultMap">
+      SELECT
+          *
+      FROM
+          ( SELECT *, ROW_NUMBER () OVER ( ORDER BY WalletsID ) AS RowId FROM Wallets ) AS b
+      WHERE
+          RowId BETWEEN 1
+          AND 100
+  </select>
+
+</mapper>

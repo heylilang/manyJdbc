@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.test.CoinClassMapper">
+    <resultMap id="BaseResultMap" type="com.example.demo.entity.CoinClass">
+        <id column="id" jdbcType="BIGINT" property="id" />
+        <result column="coin_name" jdbcType="VARCHAR" property="name" />
+        <result column="img_url" jdbcType="VARCHAR" property="imgUrl" />
+        <result column="is_hot" jdbcType="TINYINT" property="isHot" />
+        <result column="coin_type" jdbcType="TINYINT" property="coinType" />
+        <result column="double_coin_class_ids" jdbcType="TINYINT" property="doubleCoinClassIds" />
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+        <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+        <result column="is_delete" jdbcType="TINYINT" property="isDelete" />
+    </resultMap>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, coin_name, img_url, is_hot, coin_type, create_time, update_time
+    from os_coin_class
+  </select>
+
+</mapper>
